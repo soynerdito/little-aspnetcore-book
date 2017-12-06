@@ -1,20 +1,20 @@
-## Add new to-do items
+## Añadir una entrada nueva al to-do
 
-The user will add new to-do items with a simple form below the list:
+El usuario añadirá una nueva entrada al to-do con una forma simple bajo el listado:
 
 ![Final form](final-form.png)
 
-Adding this feature requires a few steps:
+Añadir esta funcionalidad requiere los siguientes pasos:
 
-* Adding JavaScript that will send the data to the server
-* Creating a new action on the controller to handle this request
-* Adding code to the service layer to update the database
+* Añadir un JavaScript que envie la información al servidor
+* La creación de una acción en el controlador que maneje esta solicitud
+* Añadir códico a la capa de servicio que actualice la base de datos
 
 ### Add JavaScript code
 
-The `Todo/Index.cshtml` view already includes an HTML form that has a textbox and a button for adding a new item. You'll use jQuery to send a POST request to the server when the Add button is clicked.
+La vista `Todo/Index.cshtml` ya incluye una forma en HTML la cual contiene un campo de texto y un boton para añadir una entrada nueva. Usarás jQuery para enviar un POST al servidor cuando se oprima el botón de Add.
 
-Open the `wwwroot/js/site.js` file and add this code:
+Abre el archivo `wwwroot/js/site.js` y añade el siguiente código:
 
 ```javascript
 $(document).ready(function() {
@@ -25,7 +25,7 @@ $(document).ready(function() {
 });
 ```
 
-Then, write the `addItem` function at the bottom of the file:
+Luego escribes la función de `addItem` al final del archivo:
 
 ```javascript
 function addItem() {
@@ -45,13 +45,13 @@ function addItem() {
 }
 ```
 
-This function will send a POST request to `http://localhost:5000/Todo/AddItem` with the name the user typed. The third parameter passed to the `$.post` method (the function) is a success handler that will run if the server responds with `200 OK`. The success handler function uses `window.location` to refresh the page (by setting the location to `/Todo`, the same page the browser is currently on). If the server responds with `400 Bad Request`, the `fail` handler attached to the `$.post` method will try to pull out an error message and display it in a the `<div>` with id `add-item-error`.
+Esta funcion va a enviar un POST a `http://localhost:5000/Todo/AddItem` con el nombre del usuario escrito. El tercer parametro pasado al método de `$.post` (la funcion) es el manejador de resultado correcto el cual va a ser ejecutado si el servidor responde con `200 OK`. La funcion de manejo de éxito utiliza `window.location` para refrescar la página (mediante posicionando la dirección a `/Todo`, la misma página que esta activada actualmente). Si el servidor responde con `400 Bad Request`, el manejador `fail` incluido al método `$.post` va a tratar de extrar un mesaje de error y mostrarlo en un `<div>` con indetificado `add-item-error`.
 
-### Add an action
+### Añadir una acción
 
-The above JavaScript code won't work yet, because there isn't any action that can handle the `/Todo/AddItem` route. If you try it now, ASP.NET Core will return a `404 Not Found` error.
+El código JavaScript anterior aún no funciona, ya que no existe una accion que pueda manejar la ruta `/Todo/AddItem`. Si lo intentas ahora, ASP.NET Core devolveria un error `404 Not Found`.
 
-You'll need to create a new action called `AddItem` on the `TodoController`:
+Debes crear una nueva acción llamada `AddItem` al controlador `TodoController`:
 
 ```csharp
 public async Task<IActionResult> AddItem(NewTodoItem newItem)
@@ -71,7 +71,8 @@ public async Task<IActionResult> AddItem(NewTodoItem newItem)
 }
 ```
 
-The method signature defines a `NewTodoItem` parameter, which is a new model that doesn't exist yet. You'll need to create it:
+En la llamada de este método se define un parametro `NewTodoItem`, el cual es un model que no existe aún.
+Es necesario crearlo:
 
 **`Models/NewTodoItem.cs`**
 
@@ -89,7 +90,7 @@ namespace AspNetCoreTodo.Models
 }
 ```
 
-This model definition (one property called `Title`) matches the data you're sending to the action with jQuery:
+La definición de este modelo (una propiedad llamada `Title`) concuerda con la data que se envia en la accion del jQuery:
 
 ```javascript
 $.post('/Todo/AddItem', { title: newTitle }  // ...
@@ -100,13 +101,13 @@ $.post('/Todo/AddItem', { title: newTitle }  // ...
 // }
 ```
 
-ASP.NET Core uses a process called **model binding** to match up the parameters submitted in the POST request to the model definition you created. If the parameter names match (ignoring things like case), the request data will be placed into the model.
+ASP.NET Core utiliza un proceso llamado **model binding** para cazar los parametros sometidos en el POST con la definición del modelo creado. Si los nombres de los parametros son los mismos (ignorando cosas como mayúsculas o mínusculas) la data enviada va a ser copiada en el modelo.
 
-After binding the request data to the model, ASP.NET Core also performs **model validation**. The `[Required]` attribute on the `Title` property informs the validator that the `Title` property should not be missing (blank). The validator won't throw an error if the model fails validation, but the validation status will be saved so you can check it in the controller.
+Luego de cazar la data enviada al modelo, ASP.NET Core ejecuta la **validación del modelo**. El atributo `[Required]` en la propiedad `Title` le informa al validador que la propiedad `Title` no puede estar vacia o en blanco. El validador no tira un error si el modelo falla, pero el estado de validación se guarda para que pueda ser verificado en el controlador.
 
-> Sidebar: It would have been possible to reuse the `TodoItem` model instead of creating the `NewTodoItem` model, but `TodoItem` contains properties that will never be submitted by the user (ID and done). It's cleaner to declare a new model that represents the exact set of properties that are relevant when adding a new item.
+> Sidebar: Es posible reusar el modelo `TodoItem` en lugar de crear un modelo `NewTodoItem`, pero `TodoItem` contiene propiedades que nunca serán sometidas por el usario (ID y done). Es mas limpio declarar un modelo nuevo que represente exatamente las propiedades relevantes al añadir una entrada nueva.
 
-Back to the `AddItem` action method on the `TodoController`: the first block checks whether the model passed the model validation process. It's customary to do this right at the beginning of the method:
+De vuelta al método `AddItem` en el controlador `TodoController`: el primer bloque verifica si el modelo aprovó o no el proceso de validacion. Es costumbre hacer esta verificacion justo al principio del método:
 
 ```csharp
 if (!ModelState.IsValid)
@@ -115,9 +116,9 @@ if (!ModelState.IsValid)
 }
 ```
 
-If the `ModelState` is invalid (because the required property is empty), the action will return 400 Bad Request along with the model state, which is automatically converted into an error message that tells the user what is wrong.
+Si el estado del modelo `ModelState` es inválido (por la propiedad requerida está en blanco), la acción devolveria un 400 Bad Request asi como el estado del modelo, el cual automaticamente se convierte en un mensaje de error que le dice al usuario que está mal.
 
-Next, the controller calls into the service layer to do the actual database operation:
+Luego, el controlador llama a la capa de servicio para hacer la operacion contra la base de datos:
 
 ```csharp
 var successful = await _todoItemService.AddItemAsync(newItem);
@@ -127,15 +128,15 @@ if (!successful)
 }
 ```
 
-The `AddItemAsync` method will return `true` or `false` depending on whether the item was successfully added to the database. If it fails for some reason, the action will return `400 Bad Request` along with an object that contains an `error` property.
+El método `AddItemAsync` devuelve `true` (cierto) o `false` (falso) dependiendo si la entrada fue satisfactoriamente añadida a la base de datos. Si por alguna razón falla, esta acción devuelve `400 Bad Request` (solicitud equivocada) asi com un objeto que contiene la propiedad `error`.
 
-Finally, if everything completed without errors, the action returns `200 OK`.
+Finalmente, si todo es completado sin errores, la acción que se devuelve es `200 OK`.
 
-### Add a service method
+### Añadir un método de servicio
 
-If you're using a code editor that understands C#, you'll see red squiggely lines under `AddItemAsync` because the method doesn't exist yet.
+Si estas usando un editor de texto que entienda C#, podrás ver unas rallitas rojas bajo `AddItemAsync` ya que este método aún no existe.
 
-As a last step, you need to add a method to the service layer. First, add it to the interface definition in `ITodoItemService`:
+Como un último paso, debes añadir un método a la capa de servicio. Primero, añadirlo a la definición de la interface `ITodoItemService`:
 
 ```csharp
 public interface ITodoItemService
@@ -146,7 +147,7 @@ public interface ITodoItemService
 }
 ```
 
-Then, the actual implementation in `TodoItemService`:
+Luego a su implementacion en `TodoItemService`:
 
 ```csharp
 public async Task<bool> AddItemAsync(NewTodoItem newItem)
@@ -166,12 +167,12 @@ public async Task<bool> AddItemAsync(NewTodoItem newItem)
 }
 ```
 
-This method creates a new `TodoItem` (the model that represents the database entity) and copies the `Title` from the `NewTodoItem` model. Then, it adds it to the context and uses `SaveChangesAsync` to persist the entity in the database.
+Este método crea un nuevo `TodoItem` (el modelo que represneta la entidad de la base de datos) y copia el `Title` del modelo `NewTodoItem`. Entonces este se añade al contexto y se usa `SaveChangesAsync` para persistir la entidad en la base de datos.
 
-> Sidebar: The above is just one way to build this functionality. If you want to display a separate page for adding a new item (for a complicated entity that contains a lot of properties, for example), you could create a new view that's bound to the model you need the user to provide values for. ASP.NET Core can render a form automatically for the properties of the model using a feature called **tag helpers**. You can find examples in the ASP.NET Core documentation at https://docs.asp.net.
+> Sidebar: Este emplo es una manera de añadir funcionalidad. Si deseas mostrar una pagina nueva para añadir una entrada (para una entidad complicada con muchas propiedades, por ejemplo), puedes crear una nueva vista que esté atada al modelo al cual el usario le proveera valores. ASP.NET Core puede pintar la forma automaticamente con las propiedades del modelo utilizando algo llamado **tag helpers**. Puedes buscar ejmplos en la documentacion de ASP.NET Core en https://docs.asp.net.
 
-### Try it out
+### Pruebalo
 
-Run the application and add some items to your to-do list with the form. Since the items are being stored in the database, they'll still be there even after you stop and start the application again.
+Ejecuta la aplicacion y añade varias entradas al listado de to-do con la forma. Ya que las entradas están siendo guardadas en la base de datos. Estos van a estar alli luego que la aplicación se detenga y se eche a correr nuevamente.
 
-> As a further challenge, try adding a date picker using HTML and JavaScript, and let the user choose an (optional) date for the `DueAt` property. Then, use that date instead of always making new tasks that are due in 3 days.
+> Como un reto futuro, trata de añadir un selector de fecha usando HTML y JavaScript, que permita al usuario seleccionar (opcional) una fecha para la propiedad de  `DueAt`. Entonces utiliza esa fecha en vez de crear automaticamente las tareas con una fecha de vencimiento de 3 dias.
