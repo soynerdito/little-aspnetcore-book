@@ -47,6 +47,6 @@ Ahora las fechas son mucho mas legibles:
 
 Hay paquetes disponibles en NuGet para todo. Desde convertir XML a aprendizaje automático para ser compartirlo en Twitter. El mismo ASP.NET Core, bajo las sábanas, no es mas que una colección de paquetes de NuGet que son añadidos a tu proyecto.
 
-> El archivo de porjecto creado por `dotnet new mvc` incluye una sola referencia al paquete `Microsoft.AspNetCore.All`, el cual es convenientemente el "super paquete" que referencia todos los demás paquetes necesarios tipicamente para un proyecto de ASP.NET Core. D esta manera no hace falta referenciar cientos de paquetes en el archivo que define el project.
+> El archivo de poryecto creado por `dotnet new mvc` incluye una sola referencia al paquete `Microsoft.AspNetCore.All`, el cual es convenientemente el "super paquete" que referencia todos los demás paquetes necesarios tipicamente para un proyecto de ASP.NET Core. D esta manera no hace falta referenciar cientos de paquetes en el archivo que define el project.
 
 En el siguiente capítulo, podrás ver otra serie de paquetes de NuGet (un sistema conocido como Entity Framework Core) el cual permite escribir códico que interactua con una base de datos.
