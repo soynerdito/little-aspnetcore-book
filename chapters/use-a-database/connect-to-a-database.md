@@ -1,4 +1,4 @@
-## Connect to a database
+## Conectar a una base de datos
 
 There are a few things you need to use Entity Framework Core to connect to a database. Since you used `dotnet new` and the MVC + Individual Auth template to set your project, you've already got them:
 

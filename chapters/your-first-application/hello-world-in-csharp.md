@@ -1,4 +1,4 @@
-## Hello World in C# #
+## Hola mundo en C# #
 Before you dive into ASP.NET Core, try creating and running a simple C# application.
 
 You can do this all from the command line. First, open up the Terminal (or PowerShell on Windows). Navigate to the location you want to store your projects, such as your Documents directory:

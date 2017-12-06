@@ -1,4 +1,4 @@
-## Using identity in the application
+## Usando indetidad en la aplicación
 
 The to-do list items themselves are still shared between all users, because the to-do entities aren't tied to a particular user. Now that the `[Authorize]` attribute ensures that you must be logged in to see the to-do view, you can filter the database query based on who is logged in.
 

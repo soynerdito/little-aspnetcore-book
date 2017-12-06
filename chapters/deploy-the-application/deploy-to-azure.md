@@ -1,4 +1,4 @@
-## Deploy to Azure
+## Publicar a Azure
 
 Deploying your ASP.NET Core application to Azure only takes a few steps. You can do it through the Azure web portal, or on the command line using the Azure CLI. I'll cover the latter.
 

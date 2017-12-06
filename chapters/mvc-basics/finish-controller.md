@@ -1,4 +1,4 @@
-## Finish the controller
+## Finalizar el controlador
 The last step is to finish the controller code. The controller now has a list of to-do items from the service layer, and it needs to put those items into a `TodoViewModel` and bind that model to the view you created earlier:
 
 **`Controllers/TodoController.cs`**

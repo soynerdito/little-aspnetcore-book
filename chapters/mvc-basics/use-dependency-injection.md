@@ -1,5 +1,5 @@
-## Use dependency injection
-Back in the `TodoController`, add some code to work with the `ITodoItemService`:
+## Utilizar inyección de dependencia
+De vuelta en el controlador `TodoController`, añade el codito que trabaja con `ITodoItemService`:
 
 ```csharp
 public class TodoController : Controller

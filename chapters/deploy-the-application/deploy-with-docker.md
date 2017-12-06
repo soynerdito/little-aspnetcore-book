@@ -1,4 +1,4 @@
-## Deploy with Docker
+## Publicar con Docker
 
 Containerization technologies like Docker can make it much easier to deploy web applications. Instead of spending time configuring a server with the dependencies it needs to run your app, copying files, and restarting processes, you can simply create a Docker image that contains everything your app needs to run, and spin it up as a container on any Docker host.
 

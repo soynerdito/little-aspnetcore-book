@@ -1,4 +1,4 @@
-## Create a new service class
+## Crear una nueva clase de servicio
 
 Back in the *MVC basics* chapter, you created a `FakeTodoItemService` that contained hard-coded to-do items. Now that you have a database context, you can create a new service class that will use Entity Framework Core to get the real items from the database.
 

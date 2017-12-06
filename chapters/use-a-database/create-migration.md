@@ -1,4 +1,4 @@
-## Create a migration
+## Crear una migración
 
 Migrations keep track of changes to the database structure over time. They make it possible to undo (roll back) a set of changes, or create a second database with the same structure as the first. With migrations, you have a full history of modifications like adding or removing columns (and entire tables).
 

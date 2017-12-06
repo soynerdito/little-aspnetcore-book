@@ -1,4 +1,4 @@
-## Add Facebook login
+## Incluir login de Facebook
 
 Out of the box, the Individual Auth template includes functionality for registering using an email and password. You can extend this by plugging in additional identity providers like Google and Facebook.
 

@@ -1,4 +1,4 @@
-## Authorization with roles
+## Autorización con roles
 
 Roles are a common approach to handling authorization and permissions in a web application. For example, you might have an Administrator role that allows admins to see and manage all the users registered for your app, while normal users can only see their own information.
 

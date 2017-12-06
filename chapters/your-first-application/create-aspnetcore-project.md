@@ -1,4 +1,4 @@
-## Create an ASP.NET Core project
+## Crear un proyecto en ASP.NET Core
 If you're still in the directory you created for the Hello World sample, move back up to your Documents or home directory:
 
 ```

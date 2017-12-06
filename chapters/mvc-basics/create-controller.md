@@ -1,4 +1,4 @@
-## Create a controller
+## Crear un controlador
 
 There are already a few controllers in the project's Controllers folder, including the `HomeController` that renders the default welcome screen you see when you visit `http://localhost:5000`. You can ignore these controllers for now.
 

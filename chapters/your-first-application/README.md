@@ -1,5 +1,5 @@
-# Your first application
-Ready to build your first web app with ASP.NET Core? You'll need to gather a few things first:
+# Tu primera aplicación
+¿Listo para construir tu primera aplicación web con ASP.NET Core? Te hace falta obtener las siguientes cosas primer:
 
 **Your favorite code editor.** You can use Atom, Sublime, Notepad, or whatever editor you prefer writing code in. If you don't have a favorite, give Visual Studio Code a try. It's a free, cross-platform code editor that has rich support for writing C#, JavaScript, HTML, and more. Just search for "download visual studio code" and follow the instructions.
 

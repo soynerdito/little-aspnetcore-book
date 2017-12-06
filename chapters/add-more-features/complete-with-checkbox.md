@@ -1,4 +1,4 @@
-## Complete items with a checkbox
+## Completar una entrada con un encasillado
 
 Adding items to your to-do list is great, but eventually you'll need to get things done, too. In the `Views/Todo/Index.cshtml` view, a checkbox is rendered for each to-do item:
 

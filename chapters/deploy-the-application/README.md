@@ -1,4 +1,4 @@
-# Deploy the application
+# Publicar la aplicación
 You've come a long way, but you're not quite done yet. Once you've created a great application, you need to share it with the world!
 
 Because ASP.NET Core applications can run on Windows, Mac, or Linux, there are a number of different ways you can deploy your application. In this chapter, I'll show you the most common (and easiest) ways to go live.

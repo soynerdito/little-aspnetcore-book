@@ -1,4 +1,4 @@
-## Add a service class
+## Añadir una clase de servicio
 You've created a model, a view, and a controller. Before you use the model and view in the controller, you also need to write code that will get the user's to-do items from a database.
 
 You could write this database code directly in the controller, but it's a better practice to keep all the database code in a separate class called a **service**. This helps keep the controller as simple as possible, and makes it easier to test and change the database code later.
