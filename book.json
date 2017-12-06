@@ -1,6 +1,6 @@
 {
-    "title": "The Little ASP.NET Core Book",
-    "description": "A friendly introduction to building web applications with the ASP.NET Core framework.",
+    "title": "El pequeño libro de ASP.NET Core",
+    "description": "Amigable introducción sobre contruir aplicativos web con la plataforma ASP.NET Core",
     "author": "Nate Barbettini",
     "pdf": {
         "paperSize": "a5"
