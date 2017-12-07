@@ -55,31 +55,29 @@ Existen muchas plataformas web bunas para escoger como: Node/Express, Spring, Ru
 
 * **Ecosistema. **ASP.NET Core puede ser nuevo pero .NET lleva mucho tiempo. Hay miles de paquetes disponibles através de NuGet \(la biblioteca de paquetes de .NET; piensa en npm, Ruby gems o Maven\). Hay paquetes disponibles para dese-serialización JSON, conectores a bases de datos, generación de PDF o cualquier otra cosa que pudieras imaginar.
 
-* may be new, but .NET has been around for a long time. There are thousands of packages available on NuGet \(the .NET package manager; think npm, Ruby gems, or Maven\). There are already packages available for JSON deserialization, database connectors, PDF generation, or almost anything else you can think of.
+* **Seguridad.** El équipo de Microsoft se toma la seguridad muy en serio y ASP.NET Core está contruido para ser seguro desde sus simientos. Maneja cosas tales como limpieza de la data de entrada asi como previene "cross-site request forgery" \(XSRF\) automaticamente para que no tengas que hacerlo tú. Además optienes el beneficio de escrito estático con el compilador .NET, el cual es como tener un verificador paranoico todo el tiempo. Esto hace más dificil que hagas algo no deseado con un grupo de datos.
 
-* **Security.** The team at Microsoft takes security seriously, and ASP.NET Core is built to be secure from the ground up. It handles things like sanitizing input data and preventing cross-site request forgery \(XSRF\) automatically, so you don't have to. You also get the benefit of static typing with the .NET compiler, which is like having a very paranoid linter turned on at all times. This makes it harder to do something you didn't intend with a variable or chunk of data.
+## .NET Core y Estándar .NET
 
-## .NET Core and .NET Standard
+A través de este libro vas apreder sobre ASP.NET Core \(la plataforma web\). Ocacionalmente mencionaré el motor .NET \(las librerias de soporte que ejecutan el código .NET\).
 
-Throughout this book, you'll be learning about ASP.NET Core \(the web framework\). I'll occasionally mention the .NET runtime \(the supporting library that runs .NET code\).
+También puedes ademas escuchar cobre .NET Core y Estándar .NET. El nombre crea confusió, asi que aquí una pequeña explicación:
 
-You may also hear about .NET Core and .NET Standard. The naming gets confusing, so here's a simple explanation:
+**Estándar .NET **es una interface de plataforma agnóstica que define las capacidades y APIs disponibles en .NET. El Estándard .NET no representa ningún código actual o funcionalidad, es solo la definicion de un API. La diferencia entre las distintas "versiones" o niveles del Estandard .NET refleja cuantos APIs están disponible \(o cuan amplia es la covertura de API\). Por ejemplo, el Estandard .NET 2.0 tiene mas APIs disponibles que el Estandard .NET 1.5 el cual a su vez tiene mas APIs que el Estándard .NET 1.0. 
 
-**.NET Standard** is a platform-agnostic interface that defines what features and APIs are available in .NET. .NET Standard doesn't represent any actual code or functionality, just the API definition. There are different "versions" or levels of .NET Standard that reflect how many APIs are available \(or how wide the API surface area is\). For example, .NET Standard 2.0 has more APIs available than .NET Standard 1.5, which has more APIs than .NET Standard 1.0.
+**.NET Core** es el motor .NET que es instalado en WIndows, Mac o Linux. Este implemeta los APIs definidos en el Estandard .NET con su respectivo código especifico para cada arquitectura y sistema operativo. Esto es lo que instalaras en tú maquina para contruir y ejectuar aplicaciones .NET Core.
 
-**.NET Core** is the .NET runtime that can be installed on Windows, Mac, or Linux. It implements the APIs defined in the .NET Standard interface with the appropriate platform-specific code on each operating system. This is what you'll install on your own machine to build and run ASP.NET Core applications.
+Y por buena mesura, **.NET Framework**  es una implemetación diferente al Estandard .NET que es sólo para Windows. Este era el único motor .NET hasta que llego .NET Core y abrió .NET a Mac y Linux. ASP.NET Core puede tambié ejcutarse en .NET Framework de sólo Windows, pero no vamos a entrar mucho en esto.
 
-And just for good measure, **.NET Framework** is a different implementation of .NET Standard that is Windows-only. This was the only .NET runtime until .NET Core came along and opened .NET up to Mac and Linux. ASP.NET Core can also run on Windows-only .NET Framework, but I won't touch on this too much.
+Si estás confundido por todos estos nombres, no hay te preocupes. Vamos a entrar en código real muy pronto.
 
-If you're confused by all this naming, no worries! We'll get to some real code in a bit.
+## Una nota para desarrolladores de ASP.NET 4
 
-## A note to ASP.NET 4 developers
+Si alguna vez has usado una versión previa de ASP.NET, salta ahora hasta el proximo capítulo.
 
-If you haven't used a previous version of ASP.NET, skip ahead to the next chapter!
+ASP.NET Core es una nueva version de ASP.NET enfocado en modernizar  ls plataforma y finalmente separarlo de System.Web, IIS y Windows. Si recuerdas todo sobre el asunto entre ASP.NET 4 y OWIN/Katana ya estás a medio camino: el proyecto Katana se convirtió en ASP.NET 5 el cual finalmente se renombró a ASP.NET Core.
 
-ASP.NET Core is a complete ground-up rewrite of ASP.NET, with a focus on modernizing the framework and finally decoupling it from System.Web, IIS, and Windows. If you remember all the OWIN/Katana stuff from ASP.NET 4, you're already halfway there: the Katana project became ASP.NET 5 which was ultimately renamed to ASP.NET Core.
+Por el legado de Jatana, la clase `Startup` es el frente y centro y no hay mas `Application_Start` o `Global.asax`. El andiamaje completo es manejado por middleware y no hay mas una separacion entre MVC y Web API: los controladores pueden simplmente devolver vistas, códigos de estado o datos. Ijección de dependencia esta dado así que no tienes que configurar un contenedor como StructureMap o Ninject si no lo quieres. Y la plataforma completa ha sido optimizada para velocidady eficiencia.
 
-Because of the Katana legacy, the `Startup` class is front and center, and there's no more `Application_Start` or `Global.asax`. The entire pipeline is driven by middleware, and there's no longer a split between MVC and Web API: controllers can simply return views, status codes, or data. Dependency injection comes baked in, so you don't need to install and configure a container like StructureMap or Ninject if you don't want to. And the entire framework has been optimized for speed and runtime efficiency.
-
-Alright, enough introduction. Let's dive in to ASP.NET Core!
+De acuerdo, ya basta de introducción. Vamos a adentrarnos en ASP.NET Core.
 
