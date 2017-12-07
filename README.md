@@ -47,13 +47,15 @@ ASP.NET Core es una plataforma creada por Microsoft para hacer aplicaciones web,
 
 ASP.NET Core corre sobre el motor de Microsoft .NET similar a Java Virtual Machine \(JVM\) o el interpretador de Ruby. Puedes escribir tu aplicación ASP.NET Core en varios lenguajes \(C\#, Visual Basic, F\#\). C\# es el más popular y es ql eu usaré en este libro. Puedes contruir y ejectuar aplicaciones en ASP.NET COre tanto en WIndows, Mac como Linux.
 
-## Why do we need another web framework?
+## ¿Por que necesitamos otra plataforma web?
 
-There are a lot of great web frameworks to choose from already: Node/Express, Spring, Ruby on Rails, Django, Laravel, and many more. What advantages does ASP.NET Core have?
+Existen muchas plataformas web bunas para escoger como: Node/Express, Spring, Ruby en Rails, Django, Laravel y muchas otras. ¿Que ventaja tenemos al escoger ASP.NET Core?
 
-* **Speed.** ASP.NET Core is fast. Because .NET code is compiled, it executes much faster than code in interpreted languages like JavaScript or Ruby. ASP.NET Core is also optimized for multithreading and asynchronous tasks. It's common to see a 5-10x speed improvement over code written in Node.js.
+* **Velocidad.** ASP.NET Core es rápidos ya que .NET es compilado. Este se ejecuta mucho más rápido que el codigo interpretado como JavaScript o Ruby. ASP.NET Core está optimizado para ser multi proceso y con tareas asincronas. Es común ver una mejoría en velocidad de un 5-10 veces sobre código escrito en Node.js.
 
-* **Ecosystem.** ASP.NET Core may be new, but .NET has been around for a long time. There are thousands of packages available on NuGet \(the .NET package manager; think npm, Ruby gems, or Maven\). There are already packages available for JSON deserialization, database connectors, PDF generation, or almost anything else you can think of.
+* **Ecosistema. **ASP.NET Core puede ser nuevo pero .NET lleva mucho tiempo. Hay miles de paquetes disponibles através de NuGet \(la biblioteca de paquetes de .NET; piensa en npm, Ruby gems o Maven\). Hay paquetes disponibles para dese-serialización JSON, conectores a bases de datos, generación de PDF o cualquier otra cosa que pudieras imaginar.
+
+* may be new, but .NET has been around for a long time. There are thousands of packages available on NuGet \(the .NET package manager; think npm, Ruby gems, or Maven\). There are already packages available for JSON deserialization, database connectors, PDF generation, or almost anything else you can think of.
 
 * **Security.** The team at Microsoft takes security seriously, and ASP.NET Core is built to be secure from the ground up. It handles things like sanitizing input data and preventing cross-site request forgery \(XSRF\) automatically, so you don't have to. You also get the benefit of static typing with the .NET compiler, which is like having a very paranoid linter turned on at all times. This makes it harder to do something you didn't intend with a variable or chunk of data.
 
