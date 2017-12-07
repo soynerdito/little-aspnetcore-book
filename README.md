@@ -12,7 +12,7 @@ The Little ASP.NET Core Book is structured as a tutorial. You'll build a to-do a
 
 Don't worry, you don't need to know anything about ASP.NET Core (or any of the above) to get started.
 
-## Before you begin
+## Antes de comenzar
 
 The code for the finished version of the application you'll build is available on GitHub (https://www.github.com/nbarbettini/little-aspnetcore-todo). Feel free to download it if you want to compare as you write your own code.
 
