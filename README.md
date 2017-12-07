@@ -77,7 +77,7 @@ Si alguna vez has usado una versión previa de ASP.NET, salta ahora hasta el pro
 
 ASP.NET Core es una nueva version de ASP.NET enfocado en modernizar  ls plataforma y finalmente separarlo de System.Web, IIS y Windows. Si recuerdas todo sobre el asunto entre ASP.NET 4 y OWIN/Katana ya estás a medio camino: el proyecto Katana se convirtió en ASP.NET 5 el cual finalmente se renombró a ASP.NET Core.
 
-Por el legado de Jatana, la clase `Startup` es el frente y centro y no hay mas `Application_Start` o `Global.asax`. El andiamaje completo es manejado por middleware y no hay mas una separacion entre MVC y Web API: los controladores pueden simplmente devolver vistas, códigos de estado o datos. Ijección de dependencia esta dado así que no tienes que configurar un contenedor como StructureMap o Ninject si no lo quieres. Y la plataforma completa ha sido optimizada para velocidady eficiencia.
+Por el legado de Katana, la clase `Startup` es el frente y centro y no hay mas `Application_Start` o `Global.asax`. El andiamaje completo es manejado por middleware y no hay mas una separacion entre MVC y Web API: los controladores pueden simplmente devolver vistas, códigos de estado o datos. Ijección de dependencia esta dado así que no tienes que configurar un contenedor como StructureMap o Ninject si no lo quieres. Y la plataforma completa ha sido optimizada para velocidady eficiencia.
 
 De acuerdo, ya basta de introducción. Vamos a adentrarnos en ASP.NET Core.
 
