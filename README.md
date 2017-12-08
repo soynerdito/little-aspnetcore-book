@@ -1,6 +1,6 @@
 # Introducción
 
-Gracias por tomar el libro Little ASP.NET Core! Escribí este pequeño libro para ayudar a los desarolladores y a personas interesadas en aprender a programar para el web utilizando ASP.NET Core 2.0, una nueva plataforma para contruir aplicaciones y APIs.
+Gracias por tomar El pequeño libro de ASP.NET Core! Escribí este pequeño libro para ayudar a los desarolladores y a personas interesadas en aprender a programar para el web utilizando ASP.NET Core 2.0, una nueva plataforma para contruir aplicaciones y APIs.
 
 El libro The Little ASP.NET Core Book está estructurado en forma de tutorial. Podrás contruir una aplicacion de to-do de principio a fin y aprenderás:
 
@@ -63,7 +63,7 @@ A través de este libro vas apreder sobre ASP.NET Core \(la plataforma web\). Oc
 
 También puedes ademas escuchar cobre .NET Core y Estándar .NET. El nombre crea confusió, asi que aquí una pequeña explicación:
 
-**Estándar .NET **es una interface de plataforma agnóstica que define las capacidades y APIs disponibles en .NET. El Estándard .NET no representa ningún código actual o funcionalidad, es solo la definicion de un API. La diferencia entre las distintas "versiones" o niveles del Estandard .NET refleja cuantos APIs están disponible \(o cuan amplia es la covertura de API\). Por ejemplo, el Estandard .NET 2.0 tiene mas APIs disponibles que el Estandard .NET 1.5 el cual a su vez tiene mas APIs que el Estándard .NET 1.0. 
+**Estándar .NET **es una interface de plataforma agnóstica que define las capacidades y APIs disponibles en .NET. El Estándard .NET no representa ningún código actual o funcionalidad, es solo la definicion de un API. La diferencia entre las distintas "versiones" o niveles del Estandard .NET refleja cuantos APIs están disponible \(o cuan amplia es la covertura de API\). Por ejemplo, el Estandard .NET 2.0 tiene mas APIs disponibles que el Estandard .NET 1.5 el cual a su vez tiene mas APIs que el Estándard .NET 1.0.
 
 **.NET Core** es el motor .NET que es instalado en WIndows, Mac o Linux. Este implemeta los APIs definidos en el Estandard .NET con su respectivo código especifico para cada arquitectura y sistema operativo. Esto es lo que instalaras en tú maquina para contruir y ejectuar aplicaciones .NET Core.
 
