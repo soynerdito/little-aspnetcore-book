@@ -1,8 +1,8 @@
 ## Requerir autenticación
 
-Often you'll want to require the user to log in before they can access certain parts of your application. For example, it makes sense to show the home page to everyone (whether you're logged in or not), but only show your to-do list after you've logged in.
+Comunmente quieres requerir que el usuario haga log in antes de tener acceso a diferentes areas de la aplicació. Por ejemplo hace sentido mostrar la página principal a todos \(independientemente que haya iniciado una sessión o no\) pero solo mostrar la lista de to-do luego de inciar una sessión.
 
-You can use the `[Authorize]` attribute in ASP.NET Core to require a logged-in user for a particular action, or an entire controller. To require authentication for all actions of the `TodoController`, add the attribute above the first line of the controller:
+Puede utilizar el atributothe `[Authorize]`  en ASP.NET Core para requerir que el usuario haya sido validado para alguna accion en particular o para todo el controlador. Para requerir autenticacion por todo el `TodoController`, añade el atributo sobre la primera linea del controlador:
 
 ```csharp
 [Authorize]
@@ -12,13 +12,15 @@ public class TodoController : Controller
 }
 ```
 
-Add this `using` statement at the top of the file:
+Añade esta linea `using`en el tope del archivo:
 
 ```csharp
 using Microsoft.AspNetCore.Authorization;
 ```
 
-Try running the application and accessing `/todo` without being logged in. You'll be redirected to the login page automatically.
+Intenta ejecutar la aplicació y acceder `/todo` sin antes hacer log in. Vas a ser redirijido a la página de login automaticamente.
 
-> Despite the name of the attribute, we are really doing an authentication check here, not an authorization check. Sorry to be confusing.
+> A pesar del nombre del atributo, nosotros estamos realmente una verificación de autenticación y no autorización. Disculpa la confusión.
+
+
 
