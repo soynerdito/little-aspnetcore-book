@@ -1,6 +1,6 @@
 ## Requerir autenticación
 
-Comunmente quieres requerir que el usuario haga log in antes de tener acceso a diferentes areas de la aplicació. Por ejemplo hace sentido mostrar la página principal a todos \(independientemente que haya iniciado una sessión o no\) pero solo mostrar la lista de to-do luego de inciar una sessión.
+Comunmente quieres requerir que el usuario haga log in antes de tener acceso a diferentes areas de la aplicació. Por ejemplo hace sentido mostrar la página principal a todos (independientemente que haya iniciado una sessión o no) pero solo mostrar la lista de to-do luego de inciar una sessión.
 
 Puede utilizar el atributothe `[Authorize]`  en ASP.NET Core para requerir que el usuario haya sido validado para alguna accion en particular o para todo el controlador. Para requerir autenticacion por todo el `TodoController`, añade el atributo sobre la primera linea del controlador:
 
