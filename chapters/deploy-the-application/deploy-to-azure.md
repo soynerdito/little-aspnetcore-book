@@ -106,10 +106,10 @@ Copy the URL to the clipboard, and use it to add a Git remote to your local repo
 git remote add azure <paste>
 ```
 
-You only need to do these steps once. Now, whenever you want to push your application files to Azure, check them in with Git and run
+Solo tienes que hacer estos pasos una vez. Ahora, cada vez que quieras subir tus archivos a Azure, añadelos con Git y ejecuta
 
 ```
 git push azure master
 ```
 
-You'll see a stream of log messages as the application is deployed to Azure. When it's complete, browse to http://yourappname.azurewebsites.net to check it out!
+Vas a ver un listado de mensajes mientras la aplicación sube a Azure. Al terminar, navega a http://yourappname.azurewebsites.net para que lo veas!

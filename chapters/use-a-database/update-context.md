@@ -1,6 +1,6 @@
 ## Actualizar el context
 
-There's not a whole lot going on in the database context yet:
+No hay mucho en el context de la base de datos aún:
 
 **`Data/ApplicationDbContext.cs`**
 
@@ -22,7 +22,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 }
 ```
 
-Add a `DbSet` property to the `ApplicationDbContext`, right below the constructor:
+Añade una propiedad `DbSet` al `ApplicationDbContext`, justo bajo el constructor:
 
 ```csharp
 public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
@@ -35,10 +35,10 @@ public DbSet<TodoItem> Items { get; set; }
 // ...
 ```
 
-A `DbSet` represents a table or collection in the database. By creating a `DbSet<TodoItem>` property called `Items`, you're telling Entity Framework Core that you want to store `TodoItem` entities in a table called `Items`.
+Un `DbSet` representa una tabla o lista en la base de datos. Al crear una propiedad `DbSet<TodoItem>` llamada `Items`, le decimos al Entity Framework Core que quieres almacenar entidades tipo `TodoItem` en una tabla llamada `Items`.
 
-You've updated the context class, but now there's one small problem: the context and database are now out of sync, because there isn't actually an `Items` table in the database. (Just updating the code of the context class doesn't change the database itself.)
+Con esto haz actualizado la clase context, pero hay un pequeño problema. El context y la base de datos no están sincronizados ya que no existe una tabla llamada `Items` en la base datos. (Solamente cambiar el código no hace cambios en la base da datos como tal.) 
 
-In order to update the database to reflect the change you just made to the context, you need to create a **migration**.
+Para que se reflejen los cambios hechos en el context con la base de datos, debes crear una **migration**.
 
-> If you already have an existing database, search the web for "scaffold-dbcontext existing database" and read Microsoft's documentation on using the `Scaffold-DbContext` tool to reverse-engineer your database structure into the proper `DbContext` and model classes automatically.
+> Si ya tienes una base de datos existente, búsca en la web por "scaffold-dbcontext existing database" y leé la documentacion de Microsoft en usando el `Scaffold-DbContext` para hacerle reverse-engineer a la estructura de la base de datos y llevarla a un `DbContext` y clases de moles automaticamente.

@@ -1,5 +1,5 @@
 ## Obtener el SDK
-Busca por "download .net core" y sigue las instrucciones que se encuentran en la página de bajada de Microsoft para tu plataforma. Luego que finalice la instalacion del SDK, abre un Terminal (o PowerShell en Windows) y usa el commando `dotnet` (también llamadado **CLI** ) para verificar que todo esta funcionando:
+Busca por "download .net core" y sigue las instrucciones que se encuentran en la página de bajada de Microsoft para tu plataforma. Luego que finalice la instalación del SDK, abre un Terminal (o PowerShell en Windows) y usa el commando `dotnet` (también llamadado **CLI** ) para verificar que todo esta funcionando:
 
 ```
 dotnet --version
