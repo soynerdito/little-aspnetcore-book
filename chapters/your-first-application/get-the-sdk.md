@@ -7,7 +7,7 @@ dotnet --version
 2.0.0
 ```
 
-Puedes ver la informació sobre tu plataforma con la opción `--info`:
+Puedes ver la información sobre tu plataforma con la opción `--info`:
 
 ```
 dotnet --info

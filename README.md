@@ -47,11 +47,11 @@ ASP.NET Core es una plataforma creada por Microsoft para hacer aplicaciones web,
 
 ASP.NET Core corre sobre el motor de Microsoft .NET similar a Java Virtual Machine (JVM) o el interpretador de Ruby. Puedes escribir tu aplicación ASP.NET Core en varios lenguajes (C#, Visual Basic, F#). C# es el más popular y es ql eu usaré en este libro. Puedes contruir y ejectuar aplicaciones en ASP.NET COre tanto en WIndows, Mac como Linux.
 
-## ¿Por que necesitamos otra plataforma web?
+## ¿Por que necesitamos otro web framework?
 
-Existen muchas plataformas web bunas para escoger como: Node/Express, Spring, Ruby en Rails, Django, Laravel y muchas otras. ¿Que ventaja tenemos al escoger ASP.NET Core?
+Existen muchos web frameworks buenos para escoger como: Node/Express, Spring, Ruby en Rails, Django, Laravel y muchas otras. ¿Que ventaja tenemos al escoger ASP.NET Core?
 
-* **Velocidad.** ASP.NET Core es rápidos ya que .NET es compilado. Este se ejecuta mucho más rápido que el codigo interpretado como JavaScript o Ruby. ASP.NET Core está optimizado para ser multi proceso y con tareas asincronas. Es común ver una mejoría en velocidad de un 5-10 veces sobre código escrito en Node.js.
+* **Velocidad.** ASP.NET Core es rápidos ya que .NET es compilado. Este se ejecuta mucho más rápido que el código interpretado como JavaScript o Ruby. ASP.NET Core está optimizado para ser multi proceso y con tareas asíncronas. Es común ver una mejoría en velocidad de un 5-10 veces sobre código escrito en Node.js.
 
 * **Ecosistema. **ASP.NET Core puede ser nuevo pero .NET lleva mucho tiempo. Hay miles de paquetes disponibles através de NuGet (la biblioteca de paquetes de .NET; piensa en npm, Ruby gems o Maven). Hay paquetes disponibles para dese-serialización JSON, conectores a bases de datos, generación de PDF o cualquier otra cosa que pudieras imaginar.
 
