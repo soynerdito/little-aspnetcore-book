@@ -25,8 +25,7 @@ Gracias a unos amigos fantásticos multi-lenguaje, el libro Little ASP.NET Core 
 
 * **The Little ASP.NET Core Book** (Orinal English)
 
-[http://www.littleasp.net/book]
-(http://www.littleasp.net/book)
+  [http://www.littleasp.net/book](http://www.littleasp.net/book)
 
 * **ASP.NET Core El Kitabı** (Turkish)
 
