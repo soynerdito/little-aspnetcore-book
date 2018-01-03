@@ -23,6 +23,11 @@ Este libro se le hacen actualizaciones frecuentemente con arreglos de bugs y nue
 
 Gracias a unos amigos fantásticos multi-lenguaje, el libro Little ASP.NET Core ha sido traducido a otros lenguajes:
 
+* **The Little ASP.NET Core Book** (Orinal English)
+
+[http://www.littleasp.net/book]
+(http://www.littleasp.net/book)
+
 * **ASP.NET Core El Kitabı** (Turkish)
 
   [https://sahinyanlik.gitbooks.io/kisa-asp-net-core-kitabi/](https://sahinyanlik.gitbooks.io/kisa-asp-net-core-kitabi/)
