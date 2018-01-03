@@ -1,24 +1,24 @@
 ## Completar una entrada con un encasillado
 
-Adding items to your to-do list is great, but eventually you'll need to get things done, too. In the `Views/Todo/Index.cshtml` view, a checkbox is rendered for each to-do item:
+Añadir entradas al to-do es genial, pero eventualmente también vas a tener que completar las tareas. En la vista `Views/Todo/Index.cshtml`, se pinta un encasillado para cada entrada del to-do.
 
 ```html
 <input type="checkbox" name="@item.Id" value="true" class="done-checkbox">
 ```
 
-The item's ID (a guid) is saved in the `name` attribute of the element. You can use this ID to tell your ASP.NET Core code to update that entity in the database when the checkbox is checked.
+El ID (guid) de la entrada es grabado en el atributo `name` del elemento. Puedes utilizar el ID para decirle al código de ASP.NET Core que actualice la entrada en la base de datos cuando el encasillado es seleccionado.
 
-This is what the whole flow will look like:
+Así es como el flujo se vería:
 
-* The user checks the box, which triggers a JavaScript function
-* JavaScript is used to make an API call to an action on the controller
-* The action calls into the service layer to update the item in the database
-* A response is sent back to the JavaScript function to indicate the update was successful
-* The HTML on the page is updated
+* El usuario hace una marca en el encasillado, lo cual dispara una función en Javascript
+* Javascript es usado para hacer la llamada API a una acción en el controlador
+* La acción llama a la capa del servicio para hacer la actualización del elemento en la base de datos
+* Una respuesta es enviada de regreso a la función de Javascript indicando que la acualización fue exitosa
+* La página HTML es actualizada
 
 ### Add JavaScript code
 
-First, open `site.js` and add this code to the `$(document).ready` block:
+Primero, abre el archivo `site.js` y añade este código al bloque de `$(document).ready`: 
 
 **wwwroot/js/site.js**
 
@@ -35,7 +35,7 @@ $(document).ready(function() {
 });
 ```
 
-Then, add the `markCompleted` function at the bottom of the file:
+Luego añade la función `markCompleted` al final del archivo:
 
 ```javascript
 function markCompleted(checkbox) {
@@ -48,9 +48,9 @@ function markCompleted(checkbox) {
 }
 ```
 
-This code uses jQuery to send an HTTP POST request to `http://localhost:5000/Todo/MarkDone`. Included in the request will be one parameter, `id`, containing the item's ID (pulled from the `name` attribute).
+Este código utiliza jQuery para enviar un HTTP POST a `http://localhost:5000/Todo/MarkDone`. Incluyendo en la llamada un parametro, `id`, el cual contiene el ID del elemento (obtenido del atributo `name`).
 
-If you open the Network Tools in your web browser and click on a checkbox, you'll see a request like:
+Is abres el Network Tools del web browser y seleccionas el encasillado, vas a poder ver la llamada así:
 
 ```
 POST http://localhost:5000/Todo/MarkDone
@@ -59,11 +59,11 @@ Content-Type: application/x-www-form-urlencoded
 id=<some guid>
 ```
 
-The success handler function passed to `$.post` uses jQuery to add a class to the table row that the checkbox sits in. With the row marked with the `done` class, a CSS rule in the page stylesheet will change the way the row looks.
+La función que maneja el éxito pasada al `$.post` utiliza jQuery para añadir una clase a la fila de la tabla donde se encuentra el encasillado. Con la fila marcada con la clase `done`, una regla CSS en el stylesheel hace que cambie la manera que se ve la fila.
 
-### Add an action to the controller
+### Añadir la acción al controlador
 
-As you've probably guessed, you need to add a `MarkDone` action on the `TodoController`:
+Como te deber imaginar, tambien necesitas añadir la acción `MarkDone` al controlador `TodoController`:
 
 ```csharp
 public async Task<IActionResult> MarkDone(Guid id)
@@ -78,28 +78,28 @@ public async Task<IActionResult> MarkDone(Guid id)
 }
 ```
 
-Let's step through each piece of this action method. First, the method accepts a `Guid` parameter called `id` in the method signature. Unlike the `AddItem` action, which used a model (the `NewTodoItem` model) and model binding/validation, the `id` parameter is very simple. If the incoming request includes a parameter called `id`, ASP.NET Core will try to parse it as a guid.
+Veamos cada parte de este método. Primero, en su definición el método acepta un parametro `Guid` llamado `id`. Diferente a la acción `AddItem`, la cual utiliza un modelo (el modelo `NewTodoItem`) y model binding/validation, el parámetro `id` es bien simple. Si la llamada incluye el parametro llamado `id`, el ASP.NET Core lo tratará de interpretar como un guid.
 
-There's no `ModelState` to check for validity, but you can still check to make sure the guid was valid. If for some reason the `id` parameter in the request was missing couldn't be parsed as a guid, it will have a value of `Guid.Empty`. If that's the case, the action can return early:
+No hay tal cosa como `ModelState` para validación, pero aún puedes verificar si el guid es válido. Si por alguna razón el parámetro `id` de la llamada faltase no podría ser interpretado como un guid, lo cual produciria un valor de `Guid.Empty`. Si ese fuese el caso, la llamada retornaría al comienzo:
 
 ```csharp
 if (id == Guid.Empty) return BadRequest();
 ```
 
-The `BadRequest()` method is a helper method that simply returns the HTTP status code `400 Bad Request`.
+El método `BadRequest()` es un método de ayuda el cual simplemente devuelve el estatus HTTP de `400 Bad Reuest`.
 
-Next, the controller needs to call down into the service to update the database. This will be handled by a new method called `MarkDoneAsync` on the `ITodoItemService`, which will return true or false depending on if the update succeeded:
+Luego el controlador necesita hacer una llamada al servicio para actualizar la base de datos. Esto es manejado por un nuevo método llamada `MarkDoneAsync` en `ITodoItemService`, el cual devueleve cierto o falso dependiendo si la actualización fué exitosa:
 
 ```csharp
 var successful = await _todoItemService.MarkDoneAsync(id);
 if (!successful) return BadRequest();
 ```
 
-Finally, if everything looks good, the `Ok()` method is used to return status code `200 OK`. More complex APIs might return JSON or other data as well, but for now returning a status code is all you need.
+Finalmente si todo se ve bien, el método `Ok()` es utilizado para devolver el estatus `200 OK`. APIs mas complejos pudiesen devolver un JSON o alguna otra data, por ahora devolver el estatus es todo lo que necesitas.
 
-### Add a service method
+### Añadir un método de servicio
 
-First, add `MarkDoneAsync` to the interface definition:
+Primero, añadir `MarkDoneAsync` a la definicion de la interface:
 
 **`Services/ITodoItemService.cs`**
 
@@ -107,7 +107,7 @@ First, add `MarkDoneAsync` to the interface definition:
 Task<bool> MarkDoneAsync(Guid id);
 ```
 
-Then, add the concrete implementation to the `TodoItemService`:
+Luego, crear la implementación concreta en `TodoItemService`:
 
 **`Services/TodoItemService.cs`**
 
@@ -127,18 +127,18 @@ public async Task<bool> MarkDoneAsync(Guid id)
 }
 ```
 
-This method uses Entity Framework Core and `Where` to find an entity by ID in the database. The `SingleOrDefaultAsync` method will return either the item (if it exists) or `null` if the ID was bogus. If it didn't exist, the code can return early.
+Este método utiliza el Entity Framework Core y `Where` para encontrar la entidad por el ID en la base de datos. El método `SingleOrDefaultAsync` devuelve el elemeto (si existe) o `null` si el ID es inválido. Si el ID no existe el código puede terminar rápido.
 
-Once you're sure that `item` isn't null, it's a simple matter of setting the `IsDone` property:
+Una vez estás seguro que `item` no es nulo, es simplemente un a cosa de marcar la propiedad `IsDone`:
 
 ```csharp
 item.IsDone = true;
 ```
 
-Changing the property only affects the local copy of the item until `SaveChangesAsync` is called to persist your changes back to the database. `SaveChangesAsync` returns an integer that reflects how many entities were updated during the save operation. In this case, it'll either be 1 (the item was updated) or 0 (something went wrong).
+Cambiar la propiedad solo afecta la copia local del elemento hasta que `SaveChangesAsync` es llamado para hacer que los cambios persistan en la base de datos. `SaveCHangesAsync` devuleve un entero el cual refleja cuantas entidades fueron actualizadas en la operación de grabar. En este caso, sería 1 (si se actualiza el elemento) o 0 (si algo salió mal).
 
-### Try it out
+### Pruébalo
 
-Run the application and try checking some items off the list. Refresh the page and they'll disappear completely, because of the `Where` filter in the `GetIncompleteItemsAsync` method.
+Ejecuta la aplicación y marca algunos elementos en la lista. Refresca la página y van a desaparecer por completo, debido al filtro `Where` en el método `GetInCompleteItemAsync`.
 
-Right now, the application contains a single, shared to-do list. It'd be even more useful if it kept track of individual to-do lists for each user. In the next chapter, you'll use ASP.NET Core Identity to add security and authentication features to the project.
+Por ahora la aplicación contiene una sola lista compartida de to-do. Esto sería aún mas útil si mantuviese un registro de listas to-do individuales para cada usuario. En el próximo capítulo, utilizarás ASP.NET Core Identity para añadir seguridad y autenticación al proyecto.
